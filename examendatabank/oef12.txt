@@ -1,0 +1,14 @@
+oef1
+in de de gerkegen info zou je dan moeten de locatie terug vinden
+ curl 'http://rest.ensembl.org/archive/id/Musmusculus/rs4224828' -H 'Content-type:text/xml'
+ <opt>
+  <data error="No object found for rs4224828" />
+</opt>
+
+
+
+
+oef2
+je moet eerst naar de ensemble website gaan en daar de notch1 gene opzoeken van de muis op de pg zie je dan het accessienummer en de locatie.
+[guest@howest ~]$ curl 'http://rest.ensembl.org/archive/syequence/region/ENSMUSG00000026923/2: 26,457,903-26,516,663..26,457,903-26,516,763:1?type='genomic' 'Content-type:text/fasta'
+
