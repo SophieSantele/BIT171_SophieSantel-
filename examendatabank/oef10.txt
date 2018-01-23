@@ -1,0 +1,51 @@
+1.
+mysql> select gene_name,(seq_region_end-seq_region_start)as length from gene order by length limit 1;
++-----------+--------+
+| gene_name | length |
++-----------+--------+
+| TRDD1     |      7 |
++-----------+--------+
+1 row in set (0.02 sec)
+
+
+2.
+mysql> select gene_name, count(transcript.transcript_id) as total from gene join transcript on transcript.gene_id = gene.gene_id group by gene_name order by total desc limit 1;
++-----------+-------+
+| gene_name | total |
++-----------+-------+
+| U6        |  1329 |
++-----------+-------+
+1 row in set (0.23 sec)
+
+
+3.
+select chromosome, count(exon.exon_id) as total from gene join transcript on gene.gene_id= transcript.gene_id join exon_transcript on exon_transcript.transcript_id=transcript.transcript_id join exon on exon.exon_id=exon_transcript.exon_id where gene.description like '%cancer%' group by gene.gene_id order by total limit 1;
++------------+-------+
+| chromosome | total |
++------------+-------+
+| 1          |     1 |
++------------+-------+
+1 rows in set (0.06 sec)
+
+
+4.
+mysql> select (count(*)) from exon;
++------------+
+| (count(*)) |
++------------+
+|     642590 |
++------------+
+1 row in set (0.12 sec)
+
+mysql> select (count(*)) from exon_transcript;
++------------+
+| (count(*)) |
++------------+
+|    1178393 |
++------------+
+1 row in set (0.20 sec)
+
+explination:
+een exon kan meerdere transcripts kan hebben. elke transcript heeft een id.
+
+
