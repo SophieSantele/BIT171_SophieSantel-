@@ -1,0 +1,23 @@
+UNF 
+- ongeordend materiaal
+Project(personal number, name, date of birth, lab code, lab name, research code, research description, research supervisor)
+
+1NF 
+-er zijn geen reperterende groepen
+- het person gegeven zijn niet gerelateerd het het project)
+- er zijn 2 primary keys in gesteld)
+project(RESEARCH CODE, research description, research supervisor, lab code, lab name)
+personeel(PERSONAL NUMBER, name, date of birth)
+
+2NF
+- het lab is partieel dependent
+project(RESEARCH CODE, research description, research supervisor)
+personeel(PERSONAL NUMBER, name, date of birth)
+lab(RESEARCH CODE,lab code, lab name)
+
+3NF
+- een personeel member kan meerdere projectn doen
+project(RESEARCH CODE, research description, research supervisor)
+personeel(PERSONAL NUMBER, name, date of birth)
+lab(RESEARCH CODE,lab code, lab name)
+laboranten(PERSONAL NUMBER, RESEARCH CODE)
