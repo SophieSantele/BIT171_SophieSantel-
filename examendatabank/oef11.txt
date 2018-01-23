@@ -1,0 +1,16 @@
+oef1
+ db.bioinf_mongo_examen.select({"drug":1},$or: [{"lozenge":"TABLET"},{"lozenge":"BUCCAL"},{"lozenge":"SUBLINGUAL"}])
+2018-01-23T16:13:48.701+0100 E QUERY    [thread1] SyntaxError: missing ) after argument list @(shell):1:43
+
+
+oef2
+> db.bioinf_mongo_examen.count({"drug":1},{"percentage_of_side_effects":{$gt: 12}})
+0
+
+oef3
+db.bioinf_mongo_examen.aggregate({"company":1},pop: {$avg: "$percentage_of_side_effects"},{pop: {$gt: 10}}})
+2018-01-23T16:13:00.538+0100 E QUERY    [thread1] SyntaxError: missing ) after argument list @(shell):1:50
+
+oef4
+db.bioinf_mongo_examen.aggregate(,maxp: {$max: "$percentage_of_side_effects"},minp: {$min: "$percentage_of_side_effects",{"compagny": {$gt: 1}})
+...
